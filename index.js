@@ -23,18 +23,28 @@ client.on('ready', () => {
 });
 
 client.on('interactionCreate', async interaction => {
+    // Kiểm tra xem tương tác có phải là lệnh chat input hay không
     if (!interaction.isChatInputCommand()) return;
 
-    if (interaction.isChatInputCommand()) {
-        await interaction.reply('Pong!');
+    // Kiểm tra nếu lệnh là /info
+    if (interaction.commandName === 'info') {
+        await interaction.reply('Tôi là Rikka bot!');
+    }
+    // Kiểm tra nếu lệnh là /hello
+    else if (interaction.commandName === 'facebook') {
+        await interaction.reply('Link facebook của Rikka: https://www.facebook.com/MinhDaiDe1');
     }
 });
 
 async function main() {
     const commands = [
         {
-            name: 'rik',
-            description: 'Rikka',
+            name: 'info',
+            description: 'Infomation',
+        },
+        {
+            name: 'facebook',
+            description: 'Facebook',
         },
     ];
     try {
