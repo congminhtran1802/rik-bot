@@ -28,12 +28,12 @@ client.on('interactionCreate', async interaction => {
 
     if (interaction.commandName === 'info') {
         await interaction.deferReply({ ephemeral: true });
-        await interaction.editReply(info);
+        await interaction.editReply({ content: info });
     }
     
     else if (interaction.commandName === 'facebook') {
         await interaction.deferReply({ ephemeral: true });
-        await interaction.editReply('[Facebook của Rikka](https://www.facebook.com/MinhDaiDe1)');
+        await interaction.editReply({ content: '[Facebook của Rikka](https://www.facebook.com/MinhDaiDe1)' });
     }
     else if (interaction.commandName === 'ping') {
         await interaction.reply('Pong');
