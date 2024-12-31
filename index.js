@@ -27,11 +27,13 @@ client.on('interactionCreate', async interaction => {
     if (!interaction.isChatInputCommand()) return;
 
     if (interaction.commandName === 'info') {
-        await interaction.reply(info);
+        await interaction.deferReply({ ephemeral: true });
+        await interaction.editReply(info);
     }
     
     else if (interaction.commandName === 'facebook') {
-        await interaction.reply('[Facebook của Rikka](https://www.facebook.com/MinhDaiDe1)');
+        await interaction.deferReply({ ephemeral: true });
+        await interaction.editReply('[Facebook của Rikka](https://www.facebook.com/MinhDaiDe1)');
     }
     else if (interaction.commandName === 'ping') {
         await interaction.reply('Pong');
