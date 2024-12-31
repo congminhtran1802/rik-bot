@@ -33,10 +33,18 @@ client.on('interactionCreate', async interaction => {
     else if (interaction.commandName === 'facebook') {
         await interaction.reply('[Facebook của Rikka](https://www.facebook.com/MinhDaiDe1)');
     }
+    else if (interaction.commandName === 'ping') {
+        await interaction.reply('Pong');
+    }
 });
 
 async function main() {
     const commands = [
+        
+        {
+            name: 'ping',
+            description: 'Ping!',
+        },
         {
             name: 'info',
             description: 'Infomation of Rikka',
