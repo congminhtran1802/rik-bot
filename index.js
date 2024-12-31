@@ -7,6 +7,7 @@ config();
 const CLIENT_ID = process.env.CLIENT_ID;
 const GUILD_ID = process.env.GUILD_ID;
 const TOKEN = process.env.BOT_TOKEN;
+const info = '```Tên: Trần Công Minh\nNgày sinh: 18/02/2002\nGiới tính: Nam\nQuê quán: Hà Nội\nSở thích: Nghe nhạc, chơi game, xem phim, đọc truyện, lập trình\nEmail: congminhtran42@gmail.com```'
 
 const client = new Client({
     intents: [GatewayIntentBits.Guilds,
@@ -23,16 +24,14 @@ client.on('ready', () => {
 });
 
 client.on('interactionCreate', async interaction => {
-    // Kiểm tra xem tương tác có phải là lệnh chat input hay không
     if (!interaction.isChatInputCommand()) return;
 
-    // Kiểm tra nếu lệnh là /info
     if (interaction.commandName === 'info') {
-        await interaction.reply('Tôi là Rikka bot!');
+        await interaction.reply(info);
     }
-    // Kiểm tra nếu lệnh là /hello
+    
     else if (interaction.commandName === 'facebook') {
-        await interaction.reply('Link facebook của Rikka: https://www.facebook.com/MinhDaiDe1');
+        await interaction.reply('[Facebook của Rikka](https://www.facebook.com/MinhDaiDe1)');
     }
 });
 
@@ -40,7 +39,7 @@ async function main() {
     const commands = [
         {
             name: 'info',
-            description: 'Infomation',
+            description: 'Infomation of Rikka',
         },
         {
             name: 'facebook',
@@ -48,12 +47,8 @@ async function main() {
         },
     ];
     try {
-        console.log('Started refreshing application (/) commands.');
-      
         await rest.put(Routes.applicationGuildCommands(CLIENT_ID,GUILD_ID), { body: commands });
         client.login(TOKEN);
-      
-        console.log('Successfully reloaded application (/) commands.');
       } catch (error) {
         console.error(error);
       }
