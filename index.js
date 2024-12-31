@@ -7,7 +7,7 @@ config();
 const CLIENT_ID = process.env.CLIENT_ID;
 const GUILD_ID = process.env.GUILD_ID;
 const TOKEN = process.env.BOT_TOKEN;
-const info = '```Tên: Trần Công Minh\nNgày sinh: 18/02/2002\nGiới tính: Nam\nQuê quán: Hà Nội\nSở thích: Nghe nhạc, chơi game, xem phim, đọc truyện, lập trình\nEmail: congminhtran42@gmail.com```'
+//const info = '```Tên: Trần Công Minh\nNgày sinh: 18/02/2002\nGiới tính: Nam\nQuê quán: Hà Nội\nSở thích: Nghe nhạc, chơi game, xem phim, đọc truyện, lập trình\nEmail: congminhtran42@gmail.com```'
 
 const client = new Client({
     intents: [GatewayIntentBits.Guilds,
@@ -28,7 +28,7 @@ client.on('interactionCreate', async interaction => {
 
     if (interaction.commandName === 'info') {
         await interaction.deferReply({ ephemeral: true });
-        await interaction.editReply({ content: info });
+        await interaction.editReply({ content: 'Tôi là Rikka bot' });
     }
     
     else if (interaction.commandName === 'facebook') {
